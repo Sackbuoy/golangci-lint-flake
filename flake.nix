@@ -52,6 +52,11 @@
       sha256 = "ppTxnb+rPqTTlWyxBdLnTB3EnLTAbs6QOjxTS86Gs9w=";
     };
 
+    v_1_64_2 = buildGolangCi {
+      version = "1.64.2";
+      sha256 = "qJPnySEfcKDLjFEhq4DVsIkQnCOva8KSOCC6i0I2UHI=";
+    };
+
     v_1_64_5 = buildGolangCi {
       version = "1.64.5";
       sha256 = "5r05mgR5xf2Ebc+fOZDSBEi08NHlAn2CNI6rn4D3rHE=";
@@ -77,6 +82,7 @@
       v-1-54-0 = v_1_54_0;
 
       # v1.64.x
+      v-1-64-2 = v_1_64_2;
       v-1-64-5 = v_1_64_5;
       v-1-64-7 = v_1_64_7;
       # Default package
@@ -88,6 +94,7 @@
       v-1-54-0 = mkShell v_1_54_0;
 
       # v1.64.x
+      v-1-64-2 = mkShell v_1_64_2;
       v-1-64-5 = mkShell v_1_64_5;
       v-1-64-7 = mkShell v_1_64_7;
       # Default shell
