@@ -67,6 +67,26 @@
       sha256 = "2tpAleq1P4aPkxhA8EuZy0vmVORfUNTTsoMtya077eg=";
     };
 
+    v_1_64_8 = buildGolangCi {
+      version = "1.64.8";
+      sha256 = "ticGh6+xQ9AZ84fHkc0qbxyzg76bMSTSQcoRvTzi5U4=";
+    };
+
+    v_2_0_0 = buildGolangCi {
+      version = "2.0.0";
+      sha256 = "UOvAGYhCngfSmlVkF6rx7030QafohkVhfPXbMDPA43s=";
+    };
+
+    v_2_0_1 = buildGolangCi {
+      version = "2.0.1";
+      sha256 = "m/w414aYNEQ8A+9fmXfnggfMo4aonCrQ7NK9hczavik=";
+    };
+
+    v_2_0_2 = buildGolangCi {
+      version = "2.0.2";
+      sha256 = "icyKeBDcY7mjeQDaA+N8NgHK9G1CJl13Tg8aXYg9U+I=";
+    };
+
     # Function to generate a devShell for a specific version
     mkShell = golangciPkg:
       pkgs.mkShell {
@@ -85,8 +105,14 @@
       v-1-64-2 = v_1_64_2;
       v-1-64-5 = v_1_64_5;
       v-1-64-7 = v_1_64_7;
+      v-1-64-8 = v_1_64_8;
+
+      # v2.0.x
+      v-2-0-0 = v_2_0_0;
+      v-2-0-1 = v_2_0_1;
+      v-2-0-2 = v_2_0_2;
       # Default package
-      default = v_1_64_7;
+      default = v_2_0_2;
     };
 
     devShells.${system} = {
@@ -97,8 +123,13 @@
       v-1-64-2 = mkShell v_1_64_2;
       v-1-64-5 = mkShell v_1_64_5;
       v-1-64-7 = mkShell v_1_64_7;
+
+      # v2.0.x
+      v-2-0-0 = mkShell v_2_0_0;
+      v-2-0-1 = mkShell v_2_0_1;
+      v-2-0-2 = mkShell v_2_0_2;
       # Default shell
-      default = mkShell v_1_64_7;
+      default = mkShell v_2_0_2;
     };
   };
 }
