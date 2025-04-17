@@ -87,6 +87,11 @@
       sha256 = "icyKeBDcY7mjeQDaA+N8NgHK9G1CJl13Tg8aXYg9U+I=";
     };
 
+    latest = buildGolangCi {
+      version = "2.0.2";
+      sha256 = "icyKeBDcY7mjeQDaA+N8NgHK9G1CJl13Tg8aXYg9U+I=";
+    };
+
     # Function to generate a devShell for a specific version
     mkShell = golangciPkg:
       pkgs.mkShell {
@@ -112,7 +117,8 @@
       v-2-0-1 = v_2_0_1;
       v-2-0-2 = v_2_0_2;
       # Default package
-      default = v_2_0_2;
+      latest = latest;
+      default = latest;
     };
 
     devShells.${system} = {
@@ -129,7 +135,8 @@
       v-2-0-1 = mkShell v_2_0_1;
       v-2-0-2 = mkShell v_2_0_2;
       # Default shell
-      default = mkShell v_2_0_2;
+      latest = mkShell latest;
+      default = mkShell latest;
     };
   };
 }
