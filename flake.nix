@@ -102,6 +102,22 @@
         '';
       };
   in {
+    lib = {
+      getVersion = filePath: let
+        fileContent = builtins.readFile filePath;
+        versionMatch = builtins.match ".*GOLANGCI_VERSION: \"v([^\n]*)\".*" fileContent;
+        version =
+          if versionMatch == null
+          then "latest"
+          else (builtins.head versionMatch);
+        versionedPackage =
+          if version == "latest"
+          then version
+          else ("v-" + builtins.replaceStrings ["."] ["-"] version);
+      in
+        versionedPackage;
+    };
+
     packages.${system} = {
       # v1.54.x
       v-1-54-0 = v_1_54_0;
